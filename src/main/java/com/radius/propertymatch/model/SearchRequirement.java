@@ -11,9 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name="search_requirement")
@@ -35,41 +34,39 @@ public class SearchRequirement {
 	@Column
 	private double longitude;
 	
-	@Column
-	private int minBudget;
+	@Column(name="min_budget")
+	private Integer minBudget;
 	
-	@Column
-	private int maxBudget;
+	@Column(name="max_budget")
+	private Integer maxBudget;
 	
 	@Column(name="min_bedrooms")
-	private int minBedrooms;
+	private Integer minBedrooms;
 	
 	@Column(name="max_bedrooms")
-	private int maxBedrooms;
+	private Integer maxBedrooms;
 		
 	@Column(name="min_bathrooms")
-	private int minBathrooms;
+	private Integer minBathrooms;
 	
 	@Column(name="max_bathrooms")
-	private int maxBathrooms;
+	private Integer maxBathrooms;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at")
 	private Date createdAt;
 	
-	@ColumnDefault("admin")
 	@Column(name="created_by")
-	private String createdBy;
+	private String createdBy = "admin";
 	
-	@LastModifiedDate
+	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false, name="updated_at")
 	private Date updatedAt;
-	
-	@ColumnDefault("admin")
+		
 	@Column(name="updated_by")
-	private String updatedBy;
+	private String updatedBy = "admin";
 
 	public int getId() {
 		return id;
@@ -103,51 +100,51 @@ public class SearchRequirement {
 		this.longitude = longitude;
 	}
 
-	public int getMinBudget() {
+	public Integer getMinBudget() {
 		return minBudget;
 	}
 
-	public void setMinBudget(int minBudget) {
+	public void setMinBudget(Integer minBudget) {
 		this.minBudget = minBudget;
 	}
 
-	public int getMaxBudget() {
+	public Integer getMaxBudget() {
 		return maxBudget;
 	}
 
-	public void setMaxBudget(int maxBudget) {
+	public void setMaxBudget(Integer maxBudget) {
 		this.maxBudget = maxBudget;
 	}
 
-	public int getMinBedrooms() {
+	public Integer getMinBedrooms() {
 		return minBedrooms;
 	}
 
-	public void setMinBedrooms(int minBedrooms) {
+	public void setMinBedrooms(Integer minBedrooms) {
 		this.minBedrooms = minBedrooms;
 	}
 
-	public int getMaxBedrooms() {
+	public Integer getMaxBedrooms() {
 		return maxBedrooms;
 	}
 
-	public void setMaxBedrooms(int maxBedrooms) {
+	public void setMaxBedrooms(Integer maxBedrooms) {
 		this.maxBedrooms = maxBedrooms;
 	}
 
-	public int getMinBathrooms() {
+	public Integer getMinBathrooms() {
 		return minBathrooms;
 	}
 
-	public void setMinBathrooms(int minBathrooms) {
+	public void setMinBathrooms(Integer minBathrooms) {
 		this.minBathrooms = minBathrooms;
 	}
 
-	public int getMaxBathrooms() {
+	public Integer getMaxBathrooms() {
 		return maxBathrooms;
 	}
 
-	public void setMaxBathrooms(int maxBathrooms) {
+	public void setMaxBathrooms(Integer maxBathrooms) {
 		this.maxBathrooms = maxBathrooms;
 	}
 

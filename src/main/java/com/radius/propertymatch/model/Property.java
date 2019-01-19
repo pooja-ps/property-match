@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
@@ -49,18 +50,16 @@ public class Property {
 	@Column(name="created_at")
 	private Date createdAt;
 	
-	@ColumnDefault("admin")
 	@Column(name="created_by")
-	private String createdBy;
+	private String createdBy = "admin";
 	
-	@LastModifiedDate
+	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false, name="updated_at")
 	private Date updatedAt;
-	
-	@ColumnDefault("admin")
+		
 	@Column(name="updated_by")
-	private String updatedBy;
+	private String updatedBy = "admin";
 
 	public int getId() {
 		return id;
