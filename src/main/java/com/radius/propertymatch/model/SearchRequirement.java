@@ -16,17 +16,17 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
-@Table(name="property")
-public class Property {
-	
-	public Property() {
+@Table(name="search_requirement")
+public class SearchRequirement {
+
+	public SearchRequirement() {
 	}
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Column(columnDefinition="INT(11) COMMENT '0 - Rent, 1 - Sale'")
+	@Column
 	private int type;
 	
 	@Column
@@ -36,13 +36,22 @@ public class Property {
 	private double longitude;
 	
 	@Column
-	private int price;
+	private int minBudget;
 	
-	@Column(name="no_of_bedrooms")
-	private int noOfBedrooms;
+	@Column
+	private int maxBudget;
+	
+	@Column(name="min_bedrooms")
+	private int minBedrooms;
+	
+	@Column(name="max_bedrooms")
+	private int maxBedrooms;
 		
-	@Column(name="no_of_bathrooms")
-	private int noOfBathrooms;
+	@Column(name="min_bathrooms")
+	private int minBathrooms;
+	
+	@Column(name="max_bathrooms")
+	private int maxBathrooms;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
@@ -94,28 +103,52 @@ public class Property {
 		this.longitude = longitude;
 	}
 
-	public int getPrice() {
-		return price;
+	public int getMinBudget() {
+		return minBudget;
 	}
 
-	public void setPrice(int price) {
-		this.price = price;
+	public void setMinBudget(int minBudget) {
+		this.minBudget = minBudget;
 	}
 
-	public int getNoOfBedrooms() {
-		return noOfBedrooms;
+	public int getMaxBudget() {
+		return maxBudget;
 	}
 
-	public void setNoOfBedrooms(int noOfBedrooms) {
-		this.noOfBedrooms = noOfBedrooms;
+	public void setMaxBudget(int maxBudget) {
+		this.maxBudget = maxBudget;
 	}
 
-	public int getNoOfBathrooms() {
-		return noOfBathrooms;
+	public int getMinBedrooms() {
+		return minBedrooms;
 	}
 
-	public void setNoOfBathrooms(int noOfBathrooms) {
-		this.noOfBathrooms = noOfBathrooms;
+	public void setMinBedrooms(int minBedrooms) {
+		this.minBedrooms = minBedrooms;
+	}
+
+	public int getMaxBedrooms() {
+		return maxBedrooms;
+	}
+
+	public void setMaxBedrooms(int maxBedrooms) {
+		this.maxBedrooms = maxBedrooms;
+	}
+
+	public int getMinBathrooms() {
+		return minBathrooms;
+	}
+
+	public void setMinBathrooms(int minBathrooms) {
+		this.minBathrooms = minBathrooms;
+	}
+
+	public int getMaxBathrooms() {
+		return maxBathrooms;
+	}
+
+	public void setMaxBathrooms(int maxBathrooms) {
+		this.maxBathrooms = maxBathrooms;
 	}
 
 	public Date getCreatedAt() {
