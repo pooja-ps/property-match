@@ -6,6 +6,8 @@ import com.radius.propertymatch.model.Property;
 
 public interface IPropertyDao {
 
+	public void add(Property property);
+	
 	public void bulkAdd(ArrayList<Property> lstProperty);
 	
 }

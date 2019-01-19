@@ -14,6 +14,11 @@ public class PropertyDaoImpl implements IPropertyDao {
 	
 	@Autowired
 	private PropertyRepository propertyRepo;
+	
+	@Override
+	public void add(Property property) {
+		propertyRepo.save(property);
+	}
 
 	@Override
 	public void bulkAdd(ArrayList<Property> lstProperty) {

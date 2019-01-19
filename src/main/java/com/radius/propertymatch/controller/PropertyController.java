@@ -3,6 +3,7 @@ package com.radius.propertymatch.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.codehaus.jackson.map.JsonMappingException;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,6 +21,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.radius.propertymatch.model.Property;
+import com.radius.propertymatch.model.SearchRequirement;
 import com.radius.propertymatch.service.IPropertyService;
 
 @Controller
@@ -27,6 +31,12 @@ public class PropertyController {
 	@Autowired
 	IPropertyService propertyService;
 
+	@PostMapping(path="/add", produces="application/json", consumes="application/json")
+	public @ResponseBody List<SearchRequirement> addProperty(@RequestBody Property property){
+		propertyService.add(property);
+		return propertyService.matchPropertyWithRequirements(property);		
+	}
+	
 	@GetMapping(path="/bulkadd")
 	public @ResponseBody String bulkAddProperties() {		
 		try {
