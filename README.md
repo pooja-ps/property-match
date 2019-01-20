@@ -44,31 +44,36 @@ http://localhost:9000/property/bulkAddPropertiesGeoInMemory
 ## APIs to post property or search requirement and get the relevant matches
 
 To add property and get relevant search requirement matches, invoke the URL http://localhost:9000/property/add .  Sample request is as follows:
-		{
-		 "type": 0,
-		 "latitude" : 74.001010,
-         "longitude" : 40.1028029,
-         "price" : "3446",
-         "noOfBathrooms" : 3,
-         "noOfBedrooms": 1
-        }
+
+{
+
+	"type":0,
+	"latitude":74.001010,
+	"longitude":40.1028029,
+	"price":"3446",
+	"noOfBathrooms":3,
+	"noOfBedrooms":1
+}
         
 Here for type field - 0 indicates rent and 1 indicates sale type of property
 
 
 To add search requirement and get relevant properties in result, invoke the URL
 http://localhost:9000/searchrequirement/add . Sample request is as follows:
-	{
-		"type": 0,
-		"latitude" : 76.001010,
-        "longitude" : 40.1028029,
-        "minBudget" : "3526",
-        "maxBudget" : "4000",
-        "minBedrooms" : null,
-        "maxBedrooms": 4,
-        "minBathrooms" : null,
-        "maxBathrooms" : 4   
-    }
+
+{  
+
+	"type":0,
+	"latitude":76.001010,
+	"longitude":40.1028029,
+	"minBudget":"3526",
+	"maxBudget":"4000",
+	"minBedrooms":null,
+	"maxBedrooms":4,
+	"minBathrooms":null,
+	"maxBathrooms":4
+}
+	
     
 ## What happens internally?
 
