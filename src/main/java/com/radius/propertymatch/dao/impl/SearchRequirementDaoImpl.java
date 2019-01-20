@@ -1,6 +1,7 @@
 package com.radius.propertymatch.dao.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,11 @@ public class SearchRequirementDaoImpl implements ISearchRequirementDao {
 		try (Stream<SearchRequirement> stream = searchRequirementRepo.streamAll()) {
 			  stream.forEach(requirement -> memoryDBService.geoAdd("Requirement", requirement.getLongitude(), requirement.getLatitude(),Integer.toString(requirement.getId())));
 		}
+	}
+	
+	@Override
+	public List<SearchRequirement> findByIdIn(List<Integer> lstRequirementId){
+		return searchRequirementRepo.findByIdIn(lstRequirementId);
 	}
 	
 }

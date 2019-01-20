@@ -1,6 +1,7 @@
 package com.radius.propertymatch.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.radius.propertymatch.model.Property;
 
@@ -12,4 +13,5 @@ public interface IPropertyDao {
 	
 	public void bulkAddPropertiesGeoInMemory();
 	
+	List<Property> findByIdIn(List<Integer> lstPropertyId);
 }

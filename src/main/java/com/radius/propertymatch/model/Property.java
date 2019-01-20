@@ -10,9 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="property")
@@ -22,7 +25,7 @@ public class Property {
 	}	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
 	@Column(columnDefinition="INT(11) COMMENT '0 - Rent, 1 - Sale'")
@@ -43,19 +46,23 @@ public class Property {
 	@Column(name="no_of_bathrooms")
 	private Integer noOfBathrooms;
 	
+	@JsonIgnore
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at")
 	private Date createdAt;
 	
+	@JsonIgnore
 	@Column(name="created_by")
 	private String createdBy = "admin";
 	
+	@JsonIgnore
 	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false, name="updated_at")
 	private Date updatedAt;
 		
+	@JsonIgnore
 	@Column(name="updated_by")
 	private String updatedBy = "admin";
 
@@ -146,5 +153,18 @@ public class Property {
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
+	
+	@Transient
+	private int matchPercentage;
 
+	@Transient
+	public int getMatchPercentage() {
+		return matchPercentage;
+	}
+
+	@Transient
+	public void setMatchPercentage(int matchPercentage) {
+		this.matchPercentage = matchPercentage;
+	}
+	
 }

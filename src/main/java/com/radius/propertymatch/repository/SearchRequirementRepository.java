@@ -2,6 +2,7 @@ package com.radius.propertymatch.repository;
 
 import static org.hibernate.jpa.QueryHints.HINT_FETCH_SIZE;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import javax.persistence.QueryHint;
@@ -19,4 +20,6 @@ public interface SearchRequirementRepository extends JpaRepository<SearchRequire
 	@QueryHints(value = @QueryHint(name = HINT_FETCH_SIZE, value = "" + Integer.MIN_VALUE))
 	@Query("select s from SearchRequirement s")
 	Stream<SearchRequirement> streamAll();
+	
+	List<SearchRequirement> findByIdIn(List<Integer> lstRequirementId);
 }

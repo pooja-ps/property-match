@@ -136,14 +136,11 @@ public class SearchRequirementController {
 	}
 
 	public boolean validateInput(SearchRequirement requirement) {
-		//Either min or max should be present for budget, bedroom and bathroom
-		if (StringUtils.isEmpty(requirement.getType()) || StringUtils.isEmpty(requirement.getLatitude())
-				|| StringUtils.isEmpty(requirement.getLongitude())
-				|| (StringUtils.isEmpty(requirement.getMinBudget()) && StringUtils.isEmpty(requirement.getMaxBudget()))
-				|| (StringUtils.isEmpty(requirement.getMinBedrooms())
-						&& StringUtils.isEmpty(requirement.getMaxBedrooms()))
-				|| (StringUtils.isEmpty(requirement.getMinBathrooms())
-						&& StringUtils.isEmpty(requirement.getMaxBathrooms()))) {
+		// Either min or max should be present for budget, bedroom and bathroom
+		if (requirement.getType() == null || requirement.getLatitude() == null || requirement.getLongitude() == null
+				|| (requirement.getMinBudget() == null && requirement.getMaxBudget() == null)
+				|| (requirement.getMinBedrooms() == null && requirement.getMaxBedrooms() == null)
+				|| (requirement.getMinBathrooms() == null && requirement.getMaxBathrooms() == null)) {
 			return false;
 		} else {
 			return true;

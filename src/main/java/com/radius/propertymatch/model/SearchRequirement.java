@@ -10,9 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="search_requirement")
@@ -52,19 +55,23 @@ public class SearchRequirement {
 	@Column(name="max_bathrooms")
 	private Integer maxBathrooms;
 	
+	@JsonIgnore
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at")
 	private Date createdAt;
 	
+	@JsonIgnore
 	@Column(name="created_by")
 	private String createdBy = "admin";
 	
+	@JsonIgnore
 	@UpdateTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false, name="updated_at")
 	private Date updatedAt;
 		
+	@JsonIgnore
 	@Column(name="updated_by")
 	private String updatedBy = "admin";
 
@@ -178,6 +185,19 @@ public class SearchRequirement {
 
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
+	}
+	
+	@Transient
+	private int matchPercentage;
+
+	@Transient
+	public int getMatchPercentage() {
+		return matchPercentage;
+	}
+
+	@Transient
+	public void setMatchPercentage(int matchPercentage) {
+		this.matchPercentage = matchPercentage;
 	}
 	
 }

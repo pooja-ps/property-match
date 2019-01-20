@@ -110,10 +110,9 @@ public class PropertyController {
 	}
 
 	public boolean validateInput(Property property) {
-		if (StringUtils.isEmpty(property.getType()) || StringUtils.isEmpty(property.getLatitude())
-				|| StringUtils.isEmpty(property.getLongitude()) || StringUtils.isEmpty(property.getPrice())
-				|| StringUtils.isEmpty(property.getNoOfBedrooms())
-				|| StringUtils.isEmpty(property.getNoOfBathrooms())) {
+		if (property.getType() == null || property.getLatitude() == null || property.getLongitude() == null
+				|| property.getPrice() == null || property.getNoOfBedrooms() == null
+				|| property.getNoOfBathrooms() == null) {
 			return false;
 		} else {
 			return true;

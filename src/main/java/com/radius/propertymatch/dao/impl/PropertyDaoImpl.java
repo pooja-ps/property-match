@@ -1,6 +1,7 @@
 package com.radius.propertymatch.dao.impl;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.radius.propertymatch.dao.IPropertyDao;
 import com.radius.propertymatch.memorydb.IMemoryDBService;
 import com.radius.propertymatch.model.Property;
+import com.radius.propertymatch.model.SearchRequirement;
 import com.radius.propertymatch.repository.PropertyRepository;
 
 @Repository
@@ -39,6 +41,11 @@ public class PropertyDaoImpl implements IPropertyDao {
 		try (Stream<Property> stream = propertyRepo.streamAll()) {
 			  stream.forEach(property -> memoryDBService.geoAdd("Property", property.getLongitude(), property.getLatitude(),Integer.toString(property.getId())));
 		}
+	}
+	
+	@Override
+	public List<Property> findByIdIn(List<Integer> lstPropertyId){
+		return propertyRepo.findByIdIn(lstPropertyId);
 	}
 
 }
