@@ -12,6 +12,8 @@ public interface ISearchRequirementService {
 	
 	public void bulkAdd(ArrayList<SearchRequirement> lstRequirement);
 	
+	public void bulkAddRequirementsGeoInMemory();
+	
 	public List<Property> matchRequirementWithProperties(SearchRequirement requirement);
 	
 }

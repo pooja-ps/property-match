@@ -9,4 +9,6 @@ public interface ISearchRequirementDao {
 	public void add(SearchRequirement requirement);
 	
 	public void bulkAdd(ArrayList<SearchRequirement> lstRequirement);
+	
+	public void bulkAddRequirementsGeoInMemory();
 }

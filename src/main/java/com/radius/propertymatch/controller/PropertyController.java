@@ -93,4 +93,9 @@ public class PropertyController {
 		return "Populated properties";
 	}
 	
+	@GetMapping(path="/bulkAddPropertiesGeoInMemory")
+	public @ResponseBody String bulkAddPropertiesGeoInMemory() {	
+		propertyService.bulkAddPropertiesGeoInMemory();
+		return "Populated properties geo data in memory";
+	}
 }

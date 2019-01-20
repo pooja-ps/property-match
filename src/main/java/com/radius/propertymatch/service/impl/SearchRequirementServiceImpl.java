@@ -19,12 +19,17 @@ public class SearchRequirementServiceImpl implements ISearchRequirementService {
 	
 	@Override
 	public void add(SearchRequirement requirement) {
-		searchRequirementDao.add(requirement);
+		searchRequirementDao.add(requirement);		
 	}
 
 	@Override
 	public void bulkAdd(ArrayList<SearchRequirement> lstRequirement) {
 		searchRequirementDao.bulkAdd(lstRequirement);
+	}
+	
+	@Override
+	public void bulkAddRequirementsGeoInMemory() {
+		searchRequirementDao.bulkAddRequirementsGeoInMemory();
 	}
 
 	@Override

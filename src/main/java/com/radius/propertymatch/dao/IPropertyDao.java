@@ -10,4 +10,6 @@ public interface IPropertyDao {
 	
 	public void bulkAdd(ArrayList<Property> lstProperty);
 	
+	public void bulkAddPropertiesGeoInMemory();
+	
 }

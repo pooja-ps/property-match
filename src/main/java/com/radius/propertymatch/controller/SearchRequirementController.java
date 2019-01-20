@@ -112,4 +112,10 @@ public class SearchRequirementController {
 		return "Populated search requirements";
 	}
 	
+	@GetMapping(path="/bulkAddRequirementsGeoInMemory")
+	public @ResponseBody String bulkAddRequirementsGeoInMemory() {	
+		searchRequirementService.bulkAddRequirementsGeoInMemory();
+		return "Populated requirements geo data in memory";
+	}
+	
 }

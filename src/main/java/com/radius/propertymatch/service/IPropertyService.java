@@ -12,5 +12,7 @@ public interface IPropertyService {
 	
 	public void bulkAdd(ArrayList<Property> lstProperty);
 	
+	public void bulkAddPropertiesGeoInMemory();
+	
 	public List<SearchRequirement> matchPropertyWithRequirements(Property property);
 }
