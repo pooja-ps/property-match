@@ -11,39 +11,37 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.LastModifiedDate;
 
 @Entity
 @Table(name="property")
 public class Property {
 	
 	public Property() {
-	}
+	}	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 	
 	@Column(columnDefinition="INT(11) COMMENT '0 - Rent, 1 - Sale'")
-	private int type;
+	private Integer type;
 	
 	@Column
-	private double latitude;
+	private Double latitude;
 	
 	@Column
-	private double longitude;
+	private Double longitude;
 	
 	@Column
-	private int price;
+	private Integer price;
 	
 	@Column(name="no_of_bedrooms")
-	private int noOfBedrooms;
+	private Integer noOfBedrooms;
 		
 	@Column(name="no_of_bathrooms")
-	private int noOfBathrooms;
+	private Integer noOfBathrooms;
 	
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
@@ -61,59 +59,59 @@ public class Property {
 	@Column(name="updated_by")
 	private String updatedBy = "admin";
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getType() {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 
-	public double getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 
-	public double getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
-	public int getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 
-	public int getNoOfBedrooms() {
+	public Integer getNoOfBedrooms() {
 		return noOfBedrooms;
 	}
 
-	public void setNoOfBedrooms(int noOfBedrooms) {
+	public void setNoOfBedrooms(Integer noOfBedrooms) {
 		this.noOfBedrooms = noOfBedrooms;
 	}
 
-	public int getNoOfBathrooms() {
+	public Integer getNoOfBathrooms() {
 		return noOfBathrooms;
 	}
 
-	public void setNoOfBathrooms(int noOfBathrooms) {
+	public void setNoOfBathrooms(Integer noOfBathrooms) {
 		this.noOfBathrooms = noOfBathrooms;
 	}
 
@@ -148,5 +146,5 @@ public class Property {
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
-	
+
 }

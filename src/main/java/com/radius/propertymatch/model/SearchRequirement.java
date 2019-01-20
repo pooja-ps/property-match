@@ -23,16 +23,16 @@ public class SearchRequirement {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private Integer id;
 	
 	@Column
-	private int type;
+	private Integer type;
 	
 	@Column
-	private double latitude;
+	private Double latitude;
 	
 	@Column
-	private double longitude;
+	private Double longitude;
 	
 	@Column(name="min_budget")
 	private Integer minBudget;
@@ -68,35 +68,35 @@ public class SearchRequirement {
 	@Column(name="updated_by")
 	private String updatedBy = "admin";
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getType() {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 
-	public double getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 
-	public double getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
