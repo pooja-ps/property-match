@@ -10,8 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.radius.propertymatch.dao.ISearchRequirementDao;
 import com.radius.propertymatch.memorydb.IMemoryDBService;
-import com.radius.propertymatch.model.Property;
 import com.radius.propertymatch.model.SearchRequirement;
+import com.radius.propertymatch.repository.ISearchRequirementBulkOperation;
 import com.radius.propertymatch.repository.SearchRequirementRepository;
 
 @Repository
@@ -23,6 +23,9 @@ public class SearchRequirementDaoImpl implements ISearchRequirementDao {
 	@Autowired
 	private SearchRequirementRepository searchRequirementRepo;
 	
+	@Autowired
+	ISearchRequirementBulkOperation bulkOperation;
+	
 	@Override
 	public void add(SearchRequirement requirement) {
 		searchRequirementRepo.save(requirement);
@@ -31,7 +34,7 @@ public class SearchRequirementDaoImpl implements ISearchRequirementDao {
 
 	@Override
 	public void bulkAdd(ArrayList<SearchRequirement> lstRequirement) {
-		searchRequirementRepo.saveAll(lstRequirement);
+		bulkOperation.bulkPersist(lstRequirement);
 	}
 	
 	@Override

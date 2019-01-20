@@ -1,5 +1,7 @@
 package com.radius.propertymatch.model;
 
+
+
 import java.util.Date;
 
 import javax.persistence.Column;

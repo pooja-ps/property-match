@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.radius.propertymatch.dao.IPropertyDao;
 import com.radius.propertymatch.memorydb.IMemoryDBService;
 import com.radius.propertymatch.model.Property;
-import com.radius.propertymatch.model.SearchRequirement;
+import com.radius.propertymatch.repository.IPropertyBulkOperation;
 import com.radius.propertymatch.repository.PropertyRepository;
 
 @Repository
@@ -22,6 +22,9 @@ public class PropertyDaoImpl implements IPropertyDao {
 
 	@Autowired
 	private PropertyRepository propertyRepo;
+	
+	@Autowired
+	IPropertyBulkOperation bulkOperation;
 
 	@Override
 	public void add(Property property) {
@@ -32,7 +35,7 @@ public class PropertyDaoImpl implements IPropertyDao {
 
 	@Override
 	public void bulkAdd(ArrayList<Property> lstProperty) {
-		propertyRepo.saveAll(lstProperty);
+		bulkOperation.bulkPersist(lstProperty);
 	}
 
 	@Override

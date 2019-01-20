@@ -46,7 +46,7 @@ public class PropertyController {
 		}
 	}
 
-	@GetMapping(path = "/bulkadd")
+	@GetMapping(path = "/bulkAdd")
 	public @ResponseBody String bulkAddProperties() {
 		try {
 			int minPrice = 0, maxPrice = 10000;

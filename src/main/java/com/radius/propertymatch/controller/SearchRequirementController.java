@@ -47,7 +47,7 @@ public class SearchRequirementController {
 		}
 	}
 
-	@GetMapping(path = "/bulkadd")
+	@GetMapping(path = "/bulkAdd")
 	public @ResponseBody String bulkAddSearchRequirements() {
 		try {
 			int minPrice = 0, maxPrice = 10000;
