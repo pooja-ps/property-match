@@ -1,7 +1,7 @@
 package com.radius.propertymatch.controller;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,9 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.ResourceUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,9 +54,11 @@ public class PropertyController {
 			int counter = 0;
 
 			JsonFactory jsonfactory = new JsonFactory();
-			File source = ResourceUtils.getFile("classpath:json/cities.json");
+			
+			ClassPathResource classPathResource = new ClassPathResource("json/cities.json");
+			InputStream inputStream = classPathResource.getInputStream();
 
-			JsonParser parser = jsonfactory.createParser(source);
+			JsonParser parser = jsonfactory.createParser(inputStream);
 
 			ArrayList<Property> lstProperty = new ArrayList<Property>();
 			Random random = new Random();

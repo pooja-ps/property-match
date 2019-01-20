@@ -83,24 +83,29 @@ public class SearchRequirementController {
 
 					// If min budget gets set to null, then max budget cannot be null, hence added
 					// check to see min budget if null or not
+					Integer tmpValue = random.nextInt(priceRange) + minPrice;
 					Integer maxBudget = (minBudget != null
-							? (random.nextBoolean() ? null : (random.nextInt(priceRange) + minPrice))
-							: (random.nextInt(priceRange) + minPrice));
+							? (random.nextBoolean() ? null : tmpValue)
+							: tmpValue);
 
 					requirement.setMinBudget(minBudget);
 					requirement.setMaxBudget(maxBudget);
-
+					
 					Integer minBedrooms = random.nextBoolean() ? null : random.nextInt(roomRange) + minRooms;
+					
+					tmpValue = random.nextInt(roomRange) + minRooms;
 					Integer maxBedrooms = (minBedrooms != null
-							? (random.nextBoolean() ? null : (random.nextInt(roomRange) + minRooms))
-							: (random.nextInt(roomRange) + minRooms));
+							? (random.nextBoolean() ? null : tmpValue)
+							: tmpValue);
 					requirement.setMinBedrooms(minBedrooms);
 					requirement.setMaxBedrooms(maxBedrooms);
-
+					
 					Integer minBathrooms = random.nextBoolean() ? null : random.nextInt(roomRange) + minRooms;
+					
+					tmpValue = random.nextInt(roomRange) + minRooms;
 					Integer maxBathrooms = (minBathrooms != null
-							? (random.nextBoolean() ? null : (random.nextInt(roomRange) + minRooms))
-							: (random.nextInt(roomRange) + minRooms));
+							? (random.nextBoolean() ? null : tmpValue)
+							: tmpValue);
 					requirement.setMinBathrooms(minBathrooms);
 					requirement.setMaxBathrooms(maxBathrooms);
 
