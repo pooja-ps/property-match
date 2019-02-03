@@ -82,7 +82,7 @@ public class PropertyController {
 					lstProperty.add(property);
 					counter++;
 
-					if (counter % 50 == 0) {
+					if (counter % 30000 == 0) {
 						propertyService.bulkAdd(lstProperty);
 						lstProperty.clear();
 					}
